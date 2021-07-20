@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add firm info
+{% endblock %}
+
+{% block left_title %}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">/Add info to DB/</h4>
+    <p>Add values to any firm.</p>
+    <hr>
+    <p class="mb-0">Select the firm name, and then enter the price and valid date.</p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<h3 align="center">Please, enter data in fields bellow.</h3>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Be careful: </strong> accepted date format is "YYYY-mm-dd".
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{ firmnames.as_p }}
+
+    <div class="form-text">
+        The date must be in the format "YYYY-mm-dd", for example: 2021-03-21
+    </div>
+    <br>
+
+    <input type="Submit" name="submit" value="Submit" class="btn btn-primary"/>
+</form>
+<br>
+
+{% if submitbutton == "Submit" and valid_data == True %}
+<div class="alert alert-success" role="alert">
+    Data is successfully updated!
+</div>
+<div class="alert alert-secondary" role="alert">
+    <h3>Firm: {{ firm }}, Price: {{ price }}, Date: {{ date }}</h3>
+</div>
+{% elif submitbutton == "Submit" and valid_data == False %}
+
+<div class="alert alert-danger" role="alert">
+    You entered incorrect data, please try again.
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block content-center %}
+
+{% endblock %}

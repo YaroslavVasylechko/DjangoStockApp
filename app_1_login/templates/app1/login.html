@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block left_title %}
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">/Login page/</h4>
+    <p>Log in to use all functionality of the site.</p>
+    <hr>
+    <p class="mb-0">After logging in your account, you will be redirected to Home page.</p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-block">LogIn</button>
+</form>
+
+{% endblock %}

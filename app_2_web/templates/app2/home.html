@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home page
+{% endblock %}
+
+{% block left_title %}
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block content-center %}
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6"><h1 align="right">Home</h1></div>
+        <div class="col-md-6"><h1>Page</h1></div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header">
+                    -----------
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Get firm price</h5>
+                    <p class="card-text">Here you can see the closing prices for some company, sorted by dates.</p>
+                    <a href="{% url 'getfirminfo' %}" class="btn btn-primary">Enter</a>
+                </div>
+                <div class="card-footer text-muted">
+                    -----------
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header">
+                    -----------
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Add data to DB</h5>
+                    <p class="card-text">Here you can add information about the company(only for administrators)</p>
+
+                    <a href="{% url 'addfirminfo' %}" {% if request.user.is_superuser or request.user.is_staff %}
+                       class="btn btn-primary" {% else %} class="btn btn-primary disabled"
+                       aria-disabled="true" {% endif %} >Enter</a>
+                </div>
+                <div class="card-footer text-muted">
+                    -----------
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

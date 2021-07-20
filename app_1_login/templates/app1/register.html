@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Register
+
+{% endblock %}
+
+{% block left_title %}
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">/Registration page/</h4>
+    <p>Register to use all functionality of the site.</p>
+    <hr>
+    <p class="mb-0">After registration you will be redirected to Home page.</p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1>Register</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
+</form>
+
+{% endblock %}
